@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormBuilder} from "@angular/forms";
 import {LoginUser} from "../shared/login-user.model";
 import {AuthService} from "../shared/auth.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-Morales-BookingSystem-create',
@@ -20,7 +21,8 @@ export class CreateComponent implements OnInit {
 
 
   constructor(private _auth: AuthService,
-              private fb: FormBuilder) { }
+              private fb: FormBuilder,
+              private router : Router) { }
 
   ngOnInit(): void {
   }
@@ -35,4 +37,7 @@ export class CreateComponent implements OnInit {
 
   }
 
+  goBack(): void {
+    this.router.navigateByUrl('/auth/login')
+  }
 }

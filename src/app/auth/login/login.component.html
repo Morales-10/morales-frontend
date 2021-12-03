@@ -15,6 +15,7 @@
 
 </div>-->
 <br>
+  <br>
 <label for="password"> Password </label>
 <input id="password" type="password" formControlName="password">
 
@@ -25,8 +26,15 @@
     Password is required.
   </div>
 </div>-->
-<button type="submit"
+  <br>
+  <br>
+  <button type="submit"
         class="btn btn-dark"
         [disabled]="!loginForm.valid">Login</button>
+  <br>
+  <br>
+  <nav>
+    <a routerLink="/auth/create">Create new Account</a>
+  </nav>
 </form>
 
