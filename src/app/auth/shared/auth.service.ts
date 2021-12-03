@@ -16,7 +16,7 @@ export class AuthService {
 
   login(loginInfo: LoginUser): Observable<string> {
     return this._http
-      .post<string>(environment.api + 'auth', loginInfo);
+      .post<string>(environment.api + 'auth/login', loginInfo);
   }
 
   create(createinfo: CreateUser): Observable<string>{
