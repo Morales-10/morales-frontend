@@ -11,13 +11,17 @@ import {Router} from "@angular/router";
 })
 export class CreateComponent implements OnInit {
 
+
   createForm = this.fb.group( {
     firstname: [''],
     lastname: [''],
     mobilnumber: [''],
     email: [''],
+    password:[''],
+    sex:['']
   })
   Create: any;
+  sexes: string[] = ['','Male','Female','Brain damaged'];
 
 
   constructor(private _auth: AuthService,
@@ -25,6 +29,9 @@ export class CreateComponent implements OnInit {
               private router : Router) { }
 
   ngOnInit(): void {
+    this.createForm = this.fb.group({
+      sexControl: ['']
+    })
   }
 
   create() {

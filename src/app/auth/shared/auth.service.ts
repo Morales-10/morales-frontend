@@ -12,7 +12,6 @@ import {TokenInfo} from "./token-info";
 })
 export class AuthService {
   redirectUrl: string | undefined;
-
   constructor(private _http: HttpClient) { }
 
   login(loginInfo: LoginUser): Observable<TokenInfo> {
@@ -27,9 +26,10 @@ export class AuthService {
       )
   }
 
-  create(createinfo: CreateUser): Observable<string>{
+  create(userDto: CreateUser): Observable<CreateUser>{
+    const acctype = 'Customer';
     return this._http
-      .post<string>( environment.api + 'auth', createinfo)
+      .post<CreateUser>( environment.api + 'auth', userDto)
   }
 
   getToken(): string | null {
