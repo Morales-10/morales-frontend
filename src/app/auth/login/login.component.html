@@ -1,6 +1,9 @@
 <h1>Login</h1>
+
+<!--<h1 class="text-hide" style="background-image: url('https://mdbcdn.b-cdn.net/img/logo/mdb-transparent-250px.png'); width: 250px; height: 90px;">MDBootstrap</h1>-->
 <form [formGroup]="loginForm" (ngSubmit)="login()">
 
+  <div class="container">
 <label for="username">Username</label>
 <input id="username"type ="text" formControlName="username">
 
@@ -36,5 +39,7 @@
   <nav>
     <a routerLink="/auth/create">Create new Account</a>
   </nav>
+  </div>
 </form>
+
 

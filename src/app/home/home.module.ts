@@ -2,16 +2,16 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { HomeRoutingModule } from './home-routing.module';
-import { AdminComponent } from './admin/admin.component';
-import { EmployeeComponent } from './employee/employee.component';
-import { CustomerComponent } from './customer/customer.component';
+import { StartpageComponent } from './startpage/startpage.component';
+
+
 
 @NgModule({
   declarations: [
-    AdminComponent,
-    EmployeeComponent,
-    CustomerComponent
+    StartpageComponent
   ],
+
+
   imports: [
     CommonModule,
     HomeRoutingModule

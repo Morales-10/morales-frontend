@@ -34,6 +34,5 @@ export class LoginComponent implements OnInit {
         console.log('token', token);
       });
     console.log('loginInfo', loginInfo);
-
   }
 }
