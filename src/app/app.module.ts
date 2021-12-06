@@ -21,4 +21,6 @@ import {AuthInterceptor} from "./auth/interceptors/auth.interceptor";
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+
+}
