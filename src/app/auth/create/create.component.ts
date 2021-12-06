@@ -3,6 +3,8 @@ import {FormBuilder} from "@angular/forms";
 import {LoginUser} from "../shared/login-user.model";
 import {AuthService} from "../shared/auth.service";
 import {Router} from "@angular/router";
+import {CreateUser} from "../shared/create-user.model";
+import {AccountDto} from "../shared/accountDto";
 
 @Component({
   selector: 'app-Morales-BookingSystem-create',
@@ -13,12 +15,12 @@ export class CreateComponent implements OnInit {
 
 
   createForm = this.fb.group( {
-    firstname: [''],
-    lastname: [''],
-    mobilnumber: [''],
+    name: [''],
+    phonenumber: [''],
     email: [''],
     password:[''],
-    sex:['']
+    sex:[''],
+    type:['']
   })
   Create: any;
   sexes: string[] = ['','Male','Female','Brain damaged'];
@@ -29,22 +31,17 @@ export class CreateComponent implements OnInit {
               private router : Router) { }
 
   ngOnInit(): void {
-    this.createForm = this.fb.group({
-      sexControl: ['']
-    })
-  }
-
-  create() {
-    let createInfo = this.createForm.value as LoginUser;
-    this._auth.login(createInfo)
-      .subscribe(token => {
-        console.log('token', token);
-      });
-    console.log('createinfo', createInfo);
 
   }
 
   goBack(): void {
     this.router.navigateByUrl('/auth/login')
+  }
+
+  createAccount() {
+    let accountToCreate = this.createForm.value as AccountDto;
+    this._auth.create(accountToCreate)
+      .subscribe();
+    console.log('createinfo: ' + accountToCreate);
   }
 }

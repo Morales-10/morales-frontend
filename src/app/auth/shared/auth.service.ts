@@ -3,8 +3,8 @@ import {HttpClient} from "@angular/common/http";
 import {LoginUser} from "./login-user.model";
 import {environment} from "../../../environments/environment";
 import {Observable, ObservableInput, tap} from "rxjs";
-import {CreateUser} from "./create-user.model";
 import {TokenInfo} from "./token-info";
+import {AccountDto} from "./accountDto";
 ;
 
 @Injectable({
@@ -13,6 +13,13 @@ import {TokenInfo} from "./token-info";
 export class AuthService {
   redirectUrl: string | undefined;
   constructor(private _http: HttpClient) { }
+
+  create(userDto: AccountDto): Observable<AccountDto>{
+    const acctype = 'Customer';
+    userDto.type = acctype;
+    return this._http
+      .post<AccountDto>( environment.api + '/api/Account/CreateAccount', userDto)
+  }
 
   login(loginInfo: LoginUser): Observable<TokenInfo> {
     return this._http
@@ -24,12 +31,6 @@ export class AuthService {
           }
         })
       )
-  }
-
-  create(userDto: CreateUser): Observable<CreateUser>{
-    const acctype = 'Customer';
-    return this._http
-      .post<CreateUser>( environment.api + 'auth', userDto)
   }
 
   getToken(): string | null {
