@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {LoginUser} from "./login-user.model";
 import {environment} from "../../../environments/environment";
-import {Observable, tap} from "rxjs";
+import {Observable, ObservableInput, tap} from "rxjs";
 import {CreateUser} from "./create-user.model";
 import {TokenInfo} from "./token-info";
 ;
@@ -35,4 +35,5 @@ export class AuthService {
   getToken(): string | null {
     return localStorage.getItem('jwtToken');
   }
+
 }
