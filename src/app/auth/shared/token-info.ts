@@ -1,4 +1,4 @@
 export interface TokenInfo {
-  token: string;
+  jwt: string;
   message: string;
 }
