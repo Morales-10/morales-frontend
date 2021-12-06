@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder} from "@angular/forms";
-import {LoginUser} from "../shared/login-user.model";
 import {AuthService} from "../shared/auth.service";
 import {Router} from "@angular/router";
-import {CreateUser} from "../shared/create-user.model";
 import {AccountDto} from "../shared/accountDto";
 
 @Component({
@@ -16,14 +14,14 @@ export class CreateComponent implements OnInit {
 
   createForm = this.fb.group( {
     name: [''],
-    phonenumber: [''],
+    phoneNumber: [''],
     email: [''],
     password:[''],
-    sex:[''],
+    chosenSex:[''],
     type:['']
   })
-  Create: any;
-  sexes: string[] = ['','Male','Female','Brain damaged'];
+
+  sexes: string[] = ['Male','Female','Brain damaged'];
 
 
   constructor(private _auth: AuthService,
@@ -43,5 +41,18 @@ export class CreateComponent implements OnInit {
     this._auth.create(accountToCreate)
       .subscribe();
     console.log('createinfo: ' + accountToCreate);
+  }
+
+
+  changeSex() {
+    
+  }
+
+  Create() {
+    let accountToCreate = this.createForm.value as AccountDto;
+    accountToCreate.sex = this.createForm.value.chosenSex;
+    this._auth.create(accountToCreate)
+      .subscribe();
+    console.log('Account info: ' + accountToCreate);
   }
 }

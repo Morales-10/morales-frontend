@@ -1,12 +1,12 @@
 <h1>Create Account</h1>
-<form [formGroup]="createForm" (ngSubmit)="Create">
+<form [formGroup]="createForm" (ngSubmit)="Create()">
 
   <label for="customer-name">Name: </label>
   <input id="customer-name" type="text" formControlName="name">
   <br>
   <br>
   <label for="mobil-number">Mobil Number: </label>
-  <input id="mobil-number" type="text" formControlName="phonenumber">
+  <input id="mobil-number" type="text" formControlName="phoneNumber">
 <br>
   <br>
   <label for="email">Email : </label>
@@ -18,22 +18,17 @@
   <br>
   <br>
   <div>
-    <Label>Sex: </Label>
-    <select>
-      <option [value]="sex" *ngFor="let sex of sexes">
-        {{sex}}
+    <select formControlName="chosenSex" (change)="changeSex()">
+      <option value="" disabled>Vælg dit køn</option>
+      <option *ngFor="let chooseSex of sexes" [ngValue]="chooseSex">
+        {{chooseSex}}
       </option>
-    </select>
-    <select>
-      <option selected="selected" value=""> Sex </option>
-      <option value="Male">Male</option>
-      <option value="Female">Female</option>
     </select>
   </div>
 <br>
 
   <br>
-  <button (click)="createAccount()"
+  <button
     type="submit"
           class="btn btn-dark"
           [disabled]="!createForm.valid">Create</button>
@@ -42,3 +37,4 @@
   <button (click) ="goBack()" > Back </button>
 
 </form>
+
