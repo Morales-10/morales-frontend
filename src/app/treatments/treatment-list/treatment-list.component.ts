@@ -22,4 +22,7 @@ export class TreatmentListComponent implements OnInit {
       .subscribe(treatments =>this.treatments = treatments);
 
   }
+
+
+
 }
