@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import {TreatmentListComponent} from "./treatment-list/treatment-list.component";
 
 const routes: Routes = [
-  {path:'treatment', component:TreatmentListComponent,}
+  {path:'', component:TreatmentListComponent,}
   ];
 
 @NgModule({

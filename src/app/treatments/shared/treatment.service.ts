@@ -1,48 +1,42 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {catchError, map, Observable, of, tap} from "rxjs";
+import {environment} from "../../../environments/environment";
+import {TreatmentList} from "./treatment-list.model";
 import {Treatment} from "./treatment-model";
 
-class treatment {
-}
 
 @Injectable({
   providedIn: 'root'
 })
 export class TreatmentService {
+  private treatmentsApi = environment.api + '/api/treatment';
 
-  private TreatmentUrl = 'api/treatment';
+  constructor(private _http: HttpClient,) { }
 
-
-  constructor(
-    private http: HttpClient,
-  ) {
+  getTreatments() : Observable<TreatmentList>{
+    return this._http
+      .get<TreatmentList>(this.treatmentsApi)
+}
+  getTreatment(id:number) : Observable<Treatment>{
+    return this._http.get<Treatment>(this.treatmentsApi + '/'+ id)
   }
 
-  getTreatments(): Observable<Treatment[]> {
-    return this.http.get<Treatment[]>(this.TreatmentUrl)
-      .pipe(
-        tap(_ => console.log('fetched treatments')),
-        catchError(this.handleError<Treatment[]>('getTreatments',[]))
-      );
+  update(treatment: Treatment) : Observable<Treatment>{
+    return this._http
+      .put<Treatment>(
+        this.treatmentsApi + '/' + treatment.id, treatment);
   }
 
-
-  private handleError<T>(operation = 'operation', result?: T) {
-    return (error: any): Observable<T> => {
-
-      // TODO: send the error to remote logging infrastructure
-      console.error(error); // log to console instead
-
-      // TODO: better job of transforming error for user consumption
-      this.handleError(`${operation} failed: ${error.message}`);
-
-      // Let the app keep running by returning an empty result.
-      return of(result as T);
-
-    };
+  create(treatment: Treatment) : Observable<Treatment> {
+    return this._http
+      .post<Treatment>(this.treatmentsApi, treatment);
   }
 
+  delete(treatment: Treatment) : Observable<Treatment> {
+    return this._http
+      .delete<Treatment>(this.treatmentsApi + '/' + treatment.id);
+  }
 
 
 
