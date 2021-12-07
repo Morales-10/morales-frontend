@@ -1,6 +1,6 @@
 export interface TokenInfo {
   jwt: string;
   message: string;
-  permissions: string[];
+  permission: string[];
   accountId: number;
 }

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {AuthService} from "../shared/auth.service";
 import {LoginUser} from "../shared/login-user.model";
+import {Route, Router} from "@angular/router";
 
 
 @Component({
@@ -18,6 +19,7 @@ export class LoginComponent implements OnInit {
 
   constructor(private _auth:AuthService,
               private fb: FormBuilder,
+              private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -30,12 +32,18 @@ push now
  */
 
   login() {
+    let permisions : string[]
     let loginInfo = this.loginForm.value as LoginUser;
     this._auth.login(loginInfo)
       .subscribe(token => {
         console.log('token', token);
-        if (token.permissions = ['admin','employee', 'customer']){
-
+        permisions = token.permission;
+        if(permisions.indexOf('Owner') > -1){
+          this.router.navigateByUrl('/owner')
+        } else if (permisions.indexOf('Employee') > -1){
+          this.router.navigateByUrl('/employee')
+        } else if (permisions.indexOf('Customer') > -1){
+          this.router.navigateByUrl('/customer')
         }
       });
     console.log('loginInfo', loginInfo);
