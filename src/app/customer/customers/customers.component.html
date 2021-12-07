@@ -2,3 +2,12 @@
  <button>Book en tid</button>
  <button>Log ud</button>
 
+ <div [ngSwitch]="view">
+   <mwl-calendar-week-view
+     *ngSwitchCase="'week'"
+     [viewDate]="viewDate"
+     [events]="events"
+     [refresh]="refresh"
+   >
+   </mwl-calendar-week-view>
+ </div>
