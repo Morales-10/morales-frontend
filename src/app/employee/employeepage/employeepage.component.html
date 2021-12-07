@@ -1,3 +1,13 @@
 <button (click)="bookAppointment()">Book ny tid</button>
 <button (click)="createNewAccount()">Opret ny bruger</button>
 <button>Afbestill tid</button>
+
+<div [ngSwitch]="view">
+  <mwl-calendar-week-view
+    *ngSwitchCase="'week'"
+    [viewDate]="viewDate"
+    [events]="events"
+    [refresh]="refresh"
+  >
+  </mwl-calendar-week-view>
+</div>
