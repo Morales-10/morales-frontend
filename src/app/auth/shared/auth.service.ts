@@ -28,6 +28,8 @@ export class AuthService {
         tap(token => {
           if (token && token.jwt){
             localStorage.setItem('jwtToken', token.jwt);
+            let accountId = new Number(token.accountId)
+            localStorage.setItem('accountId', accountId.toString(10));
           }
         })
       )
@@ -35,6 +37,10 @@ export class AuthService {
 
   getToken(): string | null {
     return localStorage.getItem('jwtToken');
+  }
+
+  getTokenAccId(): string | null {
+    return localStorage.getItem('accountId');
   }
 
 }
