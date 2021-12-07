@@ -3,12 +3,14 @@ import { CommonModule } from '@angular/common';
 
 import { HomeRoutingModule } from './home-routing.module';
 import { StartpageComponent } from './startpage/startpage.component';
+import { ContactComponent } from './contact/contact.component';
 
 
 
 @NgModule({
   declarations: [
-    StartpageComponent
+    StartpageComponent,
+    ContactComponent
   ],
 
 
