@@ -21,7 +21,7 @@ export class CreateComponent implements OnInit {
     type:['']
   })
 
-  sexes: string[] = ['Male','Female','Brain damaged'];
+  sexes: string[] = ['Mand','Kvinde','Andet'];
 
 
   constructor(private _auth: AuthService,
@@ -45,7 +45,7 @@ export class CreateComponent implements OnInit {
 
 
   changeSex() {
-    
+
   }
 
   Create() {
