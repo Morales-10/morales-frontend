@@ -3,7 +3,7 @@
 <form [formGroup]="loginForm" (ngSubmit)="login()">
 
   <div class="container">
-<label for="username">Username</label>
+<label for="username">Brugernavn </label>
 <input id="username"type ="text" formControlName="username">
 
 <!--<div *ngIf="username && username.invalid &&(username.dirty || username.touched)"
@@ -18,7 +18,7 @@
 </div>-->
 <br>
   <br>
-<label for="password"> Password </label>
+<label for="password"> Kodeord </label>
 <input id="password" type="password" formControlName="password">
 
 <!--<div *ngIf="password && password.invalid && (password.dirty || password.touched)"
@@ -36,7 +36,7 @@
   <br>
   <br>
   <nav>
-    <a routerLink="/auth/create">Create new Account</a>
+    <a routerLink="/auth/create">Opret ny bruger</a>
   </nav>
   </div>
 </form>
