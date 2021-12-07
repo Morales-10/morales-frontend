@@ -27,10 +27,6 @@ export class LoginComponent implements OnInit {
   get username(){return this.loginForm.get('username');}
   get password(){return this.loginForm.get('password');}
 
-/*
-push now
- */
-
   login() {
     let permisions : string[]
     let loginInfo = this.loginForm.value as LoginUser;
