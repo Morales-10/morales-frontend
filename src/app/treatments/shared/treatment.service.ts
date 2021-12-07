@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {catchError, Observable, of, tap} from "rxjs";
+import {catchError, map, Observable, of, tap} from "rxjs";
 import {Treatment} from "./treatment-model";
 
 class treatment {
@@ -27,6 +27,7 @@ export class TreatmentService {
       );
   }
 
+
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
 
@@ -41,4 +42,8 @@ export class TreatmentService {
 
     };
   }
+
+
+
+
 }

@@ -1,11 +1,9 @@
-<router-outlet></router-outlet>
 
-<div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
-  <div class="btn-group me-2" role="group" aria-label="First group">
-    <button type="button" class="btn btn-primary">Forside</button>  
-    <button type="button" class="btn btn-primary">Behandlinger</button>
-    <button type="button" class="btn btn-primary">Kontakt Os</button>
-    <button type="button" class="btn btn-primary">Login</button>
-</div>
+<nav>
+  <a routerLink="home"> Forside</a>
+  <a routerLink="treatment"> Behandlinger</a>
+  <a routerLink=""> Kontakt Os </a>
+  <a routerLink="/auth/login"> Login </a>
+</nav>
 
-</div>
+  <router-outlet></router-outlet>

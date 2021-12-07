@@ -1,1 +1,19 @@
 <h2>Treatments</h2>
+<div>
+  <label for="new-treatment">Treatment </label>
+  <input id="new-treatment" #treatment />
+
+  <!-- (click) passes input value to add() and then clears the input -->
+  <button class="add-button" (click)="add(treatment.value); treatment.value=''">
+    Add hero
+  </button>
+</div>
+y
+<ul class="heroes">
+  <li *ngFor="let treatment of treatments">
+    <a routerLink="/detail/{{treatment}}">
+      <span class="badge">{{treatment}}</span> {{treatment}}
+    </a>
+
+  </li>
+</ul>

@@ -1,7 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import {TreatmentListComponent} from "./treatment-list/treatment-list.component";
 
-const routes: Routes = [];
+const routes: Routes = [
+  {path:'treatment', component:TreatmentListComponent,}
+  ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],

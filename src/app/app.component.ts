@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import {Router} from "@angular/router";
+import {LoginUser} from "./auth/shared/login-user.model";
+
 
 @Component({
   selector: 'app-root',
@@ -7,5 +10,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'MoralesBookingSystem';
+
+
+  constructor(private router: Router,
+              ) {
+  }
 
 }
