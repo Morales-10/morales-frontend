@@ -1,0 +1,40 @@
+<h1>Opret en Ansat</h1>
+<form [formGroup]="createForm" (ngSubmit)="Employ()">
+
+  <label for="customer-name">Navn: </label>
+  <input id="customer-name" type="text" formControlName="name">
+  <br>
+  <br>
+  <label for="mobil-number">Mobilnummer: </label>
+  <input id="mobil-number" type="text" formControlName="phoneNumber">
+  <br>
+  <br>
+  <label for="email">Email : </label>
+  <input id="email" type="text" formControlName="email">
+  <br>
+  <br>
+  <label for="password">Kodeord : </label>
+  <input id="password" type="password" formControlName="password">
+  <br>
+  <br>
+  <div>
+    <select formControlName="chosenSex" (change)="changeSex()">
+      <option value="" disabled>Vælg dit køn</option>
+      <option *ngFor="let chooseSex of sexes" [ngValue]="chooseSex">
+        {{chooseSex}}
+      </option>
+    </select>
+  </div>
+  <br>
+
+  <br>
+  <button
+    type="submit"
+    class="btn btn-dark"
+    [disabled]="!createForm.valid">Opret bruger</button>
+  <br>
+  <br>
+  <button (click) ="goBack()" >Tilbage</button>
+
+</form>
+

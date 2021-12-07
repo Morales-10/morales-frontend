@@ -20,6 +20,12 @@ export class AuthService {
     return this._http
       .post<AccountDto>( environment.api + '/api/Account/CreateAccount', userDto)
   }
+  employ(userDto: AccountDto): Observable<AccountDto>{
+    const acctype = 'Employee';
+    userDto.type = acctype;
+    return this._http
+      .post<AccountDto>( environment.api + '/api/Account/CreateAccount', userDto)
+  }
 
   login(loginInfo: LoginUser): Observable<TokenInfo> {
     return this._http
