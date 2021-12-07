@@ -9,7 +9,7 @@ export interface AppointmentModel {
   employeeName: string;
   date: string;
   duration: DurationModel;
-  treatmentList: Treatment[];
-  price: number;
+  treatmentsList: Treatment[];
+  totalPrice: number;
   appointmentEnd: string;
 }
