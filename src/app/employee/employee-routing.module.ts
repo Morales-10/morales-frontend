@@ -4,7 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import {EmployeepageComponent} from "./employeepage/employeepage.component";
 
 const routes: Routes = [
-  {path: 'Profile', component: EmployeepageComponent}
+  {path: '', component: EmployeepageComponent}
 ];
 
 @NgModule({
