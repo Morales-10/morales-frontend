@@ -32,6 +32,9 @@ export class LoginComponent implements OnInit {
     this._auth.login(loginInfo)
       .subscribe(token => {
         console.log('token', token);
+        if (token.permissions = ['admin','employee', 'customer']){
+
+        }
       });
     console.log('loginInfo', loginInfo);
   }
