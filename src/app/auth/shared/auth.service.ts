@@ -49,4 +49,7 @@ export class AuthService {
     return localStorage.getItem('accountId');
   }
 
+  createAppointment() {
+
+  }
 }

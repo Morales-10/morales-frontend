@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {AuthService} from "../../shared/auth.service";
 import {FormBuilder} from "@angular/forms";
 import {Router} from "@angular/router";
+import {AddAppointmentDto} from "../../shared/add-appointment-dto";
 
 @Component({
   selector: 'app-Morales-BookingSystem-addappointment',
@@ -24,4 +25,12 @@ export class AddappointmentComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  changeTreatment() {
+
+  }
+
+  CreateAppointment() {
+    let appointmentToCreate = this.AddAppointmentGroup.value as AddAppointmentDto;
+    this._auth.createAppointment()
+  }
 }

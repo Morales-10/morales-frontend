@@ -1,1 +1,40 @@
-<p>addappointment works!</p>
+<h1>Opret bruger</h1>
+<form [formGroup]="AddAppointmentGroup" (ngSubmit)="CreateAppointment()">
+
+  <label for="customer-name">Navn: </label>
+  <input id="customer-name" type="text" formControlName="name">
+  <br>
+  <br>
+  <label for="mobil-number">Mobilnummer: </label>
+  <input id="mobil-number" type="text" formControlName="phoneNumber">
+  <br>
+  <br>
+  <label for="email">Email : </label>
+  <input id="email" type="text" formControlName="email">
+  <br>
+  <br>
+  <label for="password">Kodeord : </label>
+  <input id="password" type="password" formControlName="password">
+  <br>
+  <br>
+  <div>
+    <select formControlName="chosenTreatment" (change)="changeTreatment()">
+      <option value="" disabled>Vælg dit køn</option>
+      <option *ngFor="let chooseTreatment of treatments" [ngValue]="chooseTreatment">
+        {{chooseTreatment}}
+      </option>
+    </select>
+  </div>
+  <br>
+
+  <br>
+  <button
+    type="submit"
+    class="btn btn-dark"
+    [disabled]="!AddAppointmentGroup.valid">Opret bruger</button>
+  <br>
+  <br>
+  <button (click) ="goBack()" >Tilbage</button>
+
+</form>
+
