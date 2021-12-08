@@ -1,51 +1,27 @@
-<h1>Login</h1>
 
-<form [formGroup]="loginForm" (ngSubmit)="login()">
 
-  <div class="container">
-<label for="username">Brugernavn </label>
-<input id="username"type ="text" formControlName="username">
 
-<!--<div *ngIf="username && username.invalid &&(username.dirty || username.touched)"
-     class="alert alert-danger">
-  <div *ngIf="username.errors?.required">
-  Username is required.
+<div class="wrapper fadeInDown">
+  <div id="formContent">
+    <!-- Tabs Titles -->
+
+    <!-- Icon -->
+    <div class="fadeIn first">
+      <img src="" id="icon" alt="User Icon" />
+    </div>
+
+
+    <!-- Login Form -->
+    <form [formGroup]="loginForm" (ngSubmit)="login()">
+      <input type="text" id="login" class="fadeIn second" name="login" placeholder="login" formControlName="username">
+      <input type="password" id="password" class="fadeIn third" name="login" placeholder="password" formControlName="password">
+      <input type="submit" class="fadeIn fourth" value="Log In" (click)="login()">
+    </form>
+
+    <!-- Remind Passowrd -->
+    <div id="formFooter">
+      <a class="underlineHover" href="#">Forgot Password?</a>
+    </div>
+
   </div>
-  <div *ngIf="username.errors?.minlength">
-  Username must be at least 8 characters long.
-  </div>
-
-</div>-->
-<br>
-  <br>
-<label for="password"> Kodeord </label>
-<input id="password" type="password" formControlName="password">
-
-<!--<div *ngIf="password && password.invalid && (password.dirty || password.touched)"
-     class="alert alert-danger">
-
-  <div *ngIf="password.errors?.required">
-    Password is required.
-  </div>
-</div>-->
-  <br>
-  <br>
-  <button type="submit"
-        class="btn btn-dark"
-        [disabled]="!loginForm.valid">Login</button>
-    <br>
-    <br>
-    <button (click) ="logout()" >LogOut</button>
-
-  <br>
-  <br>
-  <nav>
-    <a routerLink="/auth/create">Opret ny bruger</a>
-  </nav>
-  </div>
-
-
-
-</form>
-
-
+</div>
