@@ -1,3 +1,4 @@
+<!--
 <h1>Opret bruger</h1>
 <div class="create-account-maindiv">
 <form [formGroup]="createForm" (ngSubmit)="Create()">
@@ -40,3 +41,59 @@
 </form>
 
 </div>
+-->
+<div class="container">
+
+  <div class="card bg-light">
+    <article class="card-body mx-auto" style="max-width: 400px;">
+      <h4 class="card-title mt-3 text-center">Create Account</h4>
+      <p class="divider-text">
+      </p>
+      <form [formGroup]="createForm" (ngSubmit)="Create()">
+        <div class="form-group input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+          </div>
+          <input id="name" name="" class="form-control" placeholder="Navn" type="text" formControlName="name">
+        </div> <!-- form-group// -->
+        <div class="form-group input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
+          </div>
+          <input id="phoneNumber" name="" class="form-control" placeholder="Email addresse" type="email" formControlName="email">
+        </div> <!-- form-group// -->
+        <div class="form-group input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text"> <i class="fa fa-phone"></i> </span>
+          </div>
+          <input name="" class="form-control" placeholder="Mobilnummer" type="text" formControlName="phoneNumber">
+        </div> <!-- form-group// -->
+        <div class="form-group input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text"> <i class="fa fa-building"></i> </span>
+          </div>
+          <select formControlName="chosenSex" class="form-control" (change)="changeSex()" >
+            <option value="" disabled>Vælg dit køn</option>
+            <option *ngFor="let chooseSex of sexes" [ngValue]="chooseSex">
+              {{chooseSex}}
+            </option>
+          </select>
+        </div> <!-- form-group end.// -->
+        <div class="form-group input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+          </div>
+          <input class="form-control" placeholder="Kodeord" type="password" formControlName="password">
+        </div> <!-- form-group// -->
+        <div class="form-group">
+          <button type="submit" class="btn btn-primary btn-block" (click)="createAccount()"> Create Account </button>
+        </div> <!-- form-group// -->
+        <p class="text-center">Have an account? <a href="/auth/login">Log In</a> </p>
+      </form>
+    </article>
+  </div> <!-- card.// -->
+
+</div>
+<!--container end.//-->
+
+

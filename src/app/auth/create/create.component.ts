@@ -45,6 +45,7 @@ export class CreateComponent implements OnInit {
 
 
   changeSex() {
+    let accountToCreate = this.createForm.value as AccountDto;
   }
 
   Create() {
