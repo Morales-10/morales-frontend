@@ -14,10 +14,7 @@ export class AddappointmentComponent implements OnInit {
     Customerid: [''],
     Employeeid: [''],
     Date: [''],
-    Duration: [''],
     TreatmentsList: [''],
-    TotalPrice: [''],
-    AppointmentEnd: ['']
   })
 
   constructor(private _auth: AuthService,
