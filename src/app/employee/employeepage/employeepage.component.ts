@@ -1,13 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from "@angular/router";
 
-import { Subject } from 'rxjs';
-import { addDays, addHours } from 'date-fns';
+import {map, Observable, Subject} from 'rxjs';
+import {addDays, addHours, addMinutes} from 'date-fns';
 import {
   CalendarEvent,
   CalendarEventTimesChangedEvent,
   CalendarView,
 } from 'angular-calendar';
+import {DatePipe} from "@angular/common";
+import {AppointmentEventsListModel} from "../shared/appointment-events-list-model";
+import {EmployeeServiceService} from "../shared/employee-service.service";
+import {AppointmentEventModel} from "../shared/appointment-event-model";
 
 @Component({
   selector: 'app-Morales-BookingSystem-employeepage',
@@ -16,35 +20,74 @@ import {
 })
 export class EmployeepageComponent implements OnInit {
 
+  events$ : Observable<CalendarEvent<any>[]> | undefined
   view: CalendarView = CalendarView.Week;
 
   viewDate: Date = new Date();
 
-  events: CalendarEvent[] = [
+  getFormatedDate(date: Date, format: string) {
+    const datePipe = new DatePipe('en-US');
+    return datePipe.transform(date, format);
+  }
+
+
+
+  eventsTest: CalendarEvent[] = [
     {
       title: 'Test appointment(frisør navn i title)',
       color: {
         primary: '#ad2121',
         secondary: '#FAE3E3',
       },
-      start: new Date(2021, 12,8,12,30,0),
-      end: new Date(2021, 12,8,13,0,0)
+      start: new Date(1639038600000),
+      end: new Date(1639040400000)
+    },{
+      title: 'Test appointment(frisør navn i title)',
+      color: {
+        primary: '#ad2121',
+        secondary: '#FAE3E3',
+      },
+      start: new Date(1639038600000),
+      end: new Date(1639040400000)
     },{
       title: 'Bookning ved frisør David',
       color: {
         primary: '#ad2121',
         secondary: '#FAE3E3',
       },
-      start: addHours(new Date(), 4),
-      end: addHours(new Date(), 5), // an end date is always required for resizable events to work
+      start: new Date(1638959622386.7744),
+      end: addMinutes(new Date(1638959622386.7744), 90), // an end date is always required for resizable events to work
     },
   ];
 
   refresh: Subject<any> = new Subject();
 
-  constructor(private router: Router,) { }
+  constructor(private router: Router, private employeeService: EmployeeServiceService) { }
 
   ngOnInit(): void {
+    this.events$ = this.employeeService.getEvents()
+      .pipe(
+        map(appointmentEvents => {
+          const eventsArray = appointmentEvents.appointmentEvents;
+          const calendarEvents: CalendarEvent<any>[] = [];
+          if (eventsArray){
+            eventsArray.forEach(event => {
+              calendarEvents.push({
+                title: event.subjectName,
+                color: {
+                  primary: '#ad2121',
+                  secondary: '#FAE3E3',
+                },
+                start: new Date(event.startInMillis),
+                end: addMinutes(new Date(event.startInMillis),event.durationInMinuts)
+              })
+            })
+          }
+          return calendarEvents;
+        })
+      );
+
+
   }
 
   bookAppointment():void{
