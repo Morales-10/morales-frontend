@@ -44,4 +44,7 @@ export class LoginComponent implements OnInit {
       });
     console.log('loginInfo', loginInfo);
   }
+  logout(): void {
+    this.router.navigateByUrl('/home')
+  }
 }

@@ -33,12 +33,19 @@
   <button type="submit"
         class="btn btn-dark"
         [disabled]="!loginForm.valid">Login</button>
+    <br>
+    <br>
+    <button (click) ="logout()" >LogOut</button>
+
   <br>
   <br>
   <nav>
     <a routerLink="/auth/create">Opret ny bruger</a>
   </nav>
   </div>
+
+
+
 </form>
 
 
