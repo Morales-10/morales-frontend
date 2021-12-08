@@ -20,7 +20,7 @@ export class CreateEmployeeAccountComponent implements OnInit {
     type:['']
   })
 
-  sexes: string[] = ['Mand','Kvinde','Andet'];
+  sexes: string[] = ['Mand','Kvinde'];
 
 
   constructor(private _auth: AuthService,
