@@ -90,4 +90,7 @@ export class EmployeepageComponent implements OnInit {
     this.router.navigateByUrl('/auth/login')
   }
 
+  rebookAppointment() {
+
+  }
 }

@@ -1,16 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import {map, Observable} from "rxjs";
-import {TreatmentList} from "../../treatments/shared/treatment-list.model";
 import { Subject } from 'rxjs';
-import {addDays, addHours, addMinutes} from 'date-fns';
+import {addHours, addMinutes} from 'date-fns';
 import {
   CalendarEvent,
   CalendarEventTimesChangedEvent,
   CalendarView,
 } from 'angular-calendar';
 import {Router} from "@angular/router";
-import {EmployeeServiceService} from "../../employee/shared/employee-service.service";
 import {CustomerserviceService} from "../shared/customerservice.service";
+import {FormBuilder} from "@angular/forms";
 
 @Component({
   selector: 'app-Morales-BookingSystem-customers',
@@ -43,7 +42,8 @@ export class CustomersComponent implements OnInit {
   refresh: Subject<any> = new Subject();
 
 
-  constructor(private router: Router, private customerService: CustomerserviceService) { }
+  constructor(private router: Router,
+              private customerService: CustomerserviceService,) { }
 
   ngOnInit(): void {
     this.events$ = this.customerService.getCustomerEvents()

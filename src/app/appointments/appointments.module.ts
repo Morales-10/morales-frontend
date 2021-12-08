@@ -6,6 +6,7 @@ import { AppointmentComponent } from './appointment/appointment.component';
 import { CreateComponent } from './create/create.component';
 import { DeleteComponent } from './delete/delete.component';
 import { UpdateComponent } from './update/update.component';
+import { BookappointmentComponent } from './bookappointment/bookappointment.component';
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import { UpdateComponent } from './update/update.component';
     AppointmentComponent,
     CreateComponent,
     DeleteComponent,
-    UpdateComponent
+    UpdateComponent,
+    BookappointmentComponent
   ],
   imports: [
     CommonModule,

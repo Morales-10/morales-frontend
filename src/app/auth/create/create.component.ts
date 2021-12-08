@@ -45,7 +45,6 @@ export class CreateComponent implements OnInit {
 
 
   changeSex() {
-
   }
 
   Create() {
