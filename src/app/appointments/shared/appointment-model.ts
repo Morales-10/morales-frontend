@@ -1,7 +1,8 @@
 import {DurationModel} from "../../treatments/shared/duration-model";
 import {Treatment} from "../../treatments/shared/treatment-model";
 
-export interface AppointmentModel {
+export interface Appointment {
+
   id: number;
   cutomerId: number;
   customerName: string;

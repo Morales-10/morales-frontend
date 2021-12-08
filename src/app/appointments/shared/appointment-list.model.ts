@@ -1,5 +1,5 @@
-import {AppointmentModel} from "./appointment-model";
+import {Appointment} from "./appointment-model";
 
-export interface AppointmentListModel {
-  appointmentsList: AppointmentModel[];
+export interface AppointmentList{
+  appointmentsList: Appointment[];
 }

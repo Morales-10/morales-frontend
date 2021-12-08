@@ -5,11 +5,16 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {AuthInterceptor} from "./auth/interceptors/auth.interceptor";
+import {UpdateComponent} from "./appointments/update/update.component";
+import {DeleteComponent} from "./appointments/delete/delete.component";
+
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    UpdateComponent,
+    DeleteComponent
   ],
   imports: [
     BrowserModule,
