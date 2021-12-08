@@ -2,6 +2,7 @@
  <button>Book en tid</button>
  <button>Log ud</button>
 
+ <div *ngIf="events$ | async as events">
  <div [ngSwitch]="view">
    <mwl-calendar-week-view
      *ngSwitchCase="'week'"
@@ -10,4 +11,5 @@
      [refresh]="refresh"
    >
    </mwl-calendar-week-view>
+ </div>
  </div>

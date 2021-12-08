@@ -19,19 +19,9 @@ import {AppointmentEventModel} from "../shared/appointment-event-model";
   styleUrls: ['./employeepage.component.scss']
 })
 export class EmployeepageComponent implements OnInit {
-
   events$ : Observable<CalendarEvent<any>[]> | undefined
   view: CalendarView = CalendarView.Week;
-
   viewDate: Date = new Date();
-
-  getFormatedDate(date: Date, format: string) {
-    const datePipe = new DatePipe('en-US');
-    return datePipe.transform(date, format);
-  }
-
-
-
   eventsTest: CalendarEvent[] = [
     {
       title: 'Test appointment(frisør navn i title)',
@@ -59,7 +49,6 @@ export class EmployeepageComponent implements OnInit {
       end: addMinutes(new Date(1638959622386.7744), 90), // an end date is always required for resizable events to work
     },
   ];
-
   refresh: Subject<any> = new Subject();
 
   constructor(private router: Router, private employeeService: EmployeeServiceService) { }
