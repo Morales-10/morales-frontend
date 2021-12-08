@@ -1,6 +1,6 @@
  <h1>Bruger</h1>
  <button>Book en tid</button>
- <button>Log ud</button>
+ <button (click) ="logout()">Log ud</button>
 
  <div *ngIf="events$ | async as events">
  <div [ngSwitch]="view">

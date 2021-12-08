@@ -86,5 +86,8 @@ export class EmployeepageComponent implements OnInit {
     this.router.navigateByUrl('auth/create')
 
   }
+  logout(): void {
+    this.router.navigateByUrl('/auth/login')
+  }
 
 }

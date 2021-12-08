@@ -1,6 +1,6 @@
 <button (click)="bookAppointment()">Book ny tid</button>
+<button (click) ="logout()">Log ud</button>
 <button>Afbestill tid</button>
-
 <div *ngIf="events$ | async as events">
 <div [ngSwitch]="view">
   <mwl-calendar-week-view
