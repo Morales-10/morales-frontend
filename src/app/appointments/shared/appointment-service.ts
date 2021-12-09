@@ -4,13 +4,14 @@ import {Appointment} from "./appointment-model";
 import {environment} from "../../../environments/environment";
 import {HttpClient} from "@angular/common/http";
 import {AppointmentList} from "./appointment-list.model";
+import {AppointmentEventsListModel} from "../../employee/shared/appointment-events-list-model";
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class AppointmentService {
-  private appointmentApi = environment.api + '/api/appointments';
+  private appointmentApi = environment.api + '/api/Appointment';
 
   constructor(private _http :HttpClient,) { }
 
@@ -37,5 +38,8 @@ export class AppointmentService {
   delete(appointment: Appointment) : Observable<Appointment> {
     return this._http
       .delete<Appointment>( this.appointmentApi + '/' + appointment.id);
+  }
+  getEvents() : Observable<AppointmentEventsListModel>{
+    return this._http.get<AppointmentEventsListModel>(this.appointmentApi + '/employee/events/user')
   }
 }

@@ -5,21 +5,22 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {AuthInterceptor} from "./auth/interceptors/auth.interceptor";
-import {UpdateComponent} from "./appointments/update/update.component";
-import {DeleteComponent} from "./appointments/delete/delete.component";
+
+
+import {AppointmentsModule} from "./appointments/appointments.module";
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    UpdateComponent,
-    DeleteComponent
+
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
+    AppointmentsModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true},

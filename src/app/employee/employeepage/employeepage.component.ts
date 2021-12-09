@@ -22,33 +22,6 @@ export class EmployeepageComponent implements OnInit {
   events$ : Observable<CalendarEvent<any>[]> | undefined
   view: CalendarView = CalendarView.Week;
   viewDate: Date = new Date();
-  eventsTest: CalendarEvent[] = [
-    {
-      title: 'Test appointment(frisør navn i title)',
-      color: {
-        primary: '#ad2121',
-        secondary: '#FAE3E3',
-      },
-      start: new Date(1639038600000),
-      end: new Date(1639040400000)
-    },{
-      title: 'Test appointment(frisør navn i title)',
-      color: {
-        primary: '#ad2121',
-        secondary: '#FAE3E3',
-      },
-      start: new Date(1639038600000),
-      end: new Date(1639040400000)
-    },{
-      title: 'Bookning ved frisør David',
-      color: {
-        primary: '#ad2121',
-        secondary: '#FAE3E3',
-      },
-      start: new Date(1638959622386.7744),
-      end: addMinutes(new Date(1638959622386.7744), 90), // an end date is always required for resizable events to work
-    },
-  ];
   refresh: Subject<any> = new Subject();
 
   constructor(private router: Router, private employeeService: EmployeeServiceService) { }
