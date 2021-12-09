@@ -8,7 +8,7 @@ import {
   CalendarView,
 } from 'angular-calendar';
 import {Router} from "@angular/router";
-import {CustomerserviceService} from "../shared/customerservice.service";
+import {CustomerService} from "../shared/customer.service";
 import {FormBuilder} from "@angular/forms";
 
 @Component({
@@ -43,7 +43,7 @@ export class CustomersComponent implements OnInit {
 
 
   constructor(private router: Router,
-              private customerService: CustomerserviceService,) { }
+              private customerService: CustomerService,) { }
 
   ngOnInit(): void {
     this.events$ = this.customerService.getCustomerEvents()
