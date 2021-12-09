@@ -6,20 +6,24 @@ import { AppointmentComponent } from './appointment/appointment.component';
 import { CreateComponent } from './create/create.component';
 import { DeleteComponent } from './delete/delete.component';
 import { UpdateComponent } from './update/update.component';
-import { BookappointmentComponent } from './bookappointment/bookappointment.component';
 
+import { CalendarModule, DateAdapter } from 'angular-calendar';
+import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 
 @NgModule({
   declarations: [
     AppointmentComponent,
     CreateComponent,
     DeleteComponent,
-    UpdateComponent,
-    BookappointmentComponent
+    UpdateComponent
   ],
   imports: [
     CommonModule,
-    AppointmentsRoutingModule
+    AppointmentsRoutingModule,
+    CalendarModule.forRoot({
+      provide: DateAdapter,
+      useFactory: adapterFactory,
+    })
   ]
 })
 export class AppointmentsModule { }

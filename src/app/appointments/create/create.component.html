@@ -1,1 +1,15 @@
 <p>create works!</p>
+
+
+<p>Disse tider er ikke tilgængelige</p>
+<div *ngIf="events$ | async as events">
+  <div [ngSwitch]="view">
+    <mwl-calendar-week-view
+      *ngSwitchCase="'week'"
+      [viewDate]="viewDate"
+      [events]="events"
+      [refresh]="refresh"
+    >
+    </mwl-calendar-week-view>
+  </div>
+</div>
