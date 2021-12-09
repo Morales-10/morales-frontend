@@ -9,6 +9,7 @@ import { UpdateComponent } from './update/update.component';
 
 import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
+import {ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
   ],
   imports: [
     CommonModule,
+    ReactiveFormsModule,
     AppointmentsRoutingModule,
     CalendarModule.forRoot({
       provide: DateAdapter,

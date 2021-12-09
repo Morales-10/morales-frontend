@@ -12,6 +12,9 @@ import {
   CalendarView,
 } from 'angular-calendar';
 import {DatePipe} from "@angular/common";
+import {AccountListDto} from "../../auth/shared/account-list-dto";
+import {TreatmentList} from "../../treatments/shared/treatment-list.model";
+import {AppointmentCreationModle} from "../shared/appointment-creation-modle";
 
 
 @Component({
@@ -21,18 +24,29 @@ import {DatePipe} from "@angular/common";
 })
 export class CreateComponent implements OnInit {
   appointmentForm = new FormGroup({
-    name: new FormControl('', Validators.required),
+    employee: new FormControl('', Validators.required),
+    date: new FormControl('', Validators.required),
+    time: new FormControl('', Validators.required),
+    treatments: new FormControl('', Validators.required)
   });
   events$ : Observable<CalendarEvent<any>[]> | undefined
   view: CalendarView = CalendarView.Week;
   viewDate: Date = new Date();
   refresh: Subject<any> = new Subject();
+  employees$: Observable<AccountListDto> | undefined;
+  treatments$: Observable<TreatmentList> | undefined;
 
   constructor(private _router : Router,
               private _appointmentService : AppointmentService,
               private _route :ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.employees$ = this._appointmentService.getEmployees();
+    this.treatments$ = this._appointmentService.getTreatments();
+    this.refreshCalendar()
+  }
+
+  refreshCalendar() {
     this.events$ = this._appointmentService.getEvents()
       .pipe(
         map(appointmentEvents => {
@@ -56,6 +70,17 @@ export class CreateComponent implements OnInit {
       );
   }
 
-
-
+  bookTime() {
+    const accountId = localStorage.getItem('accountId')
+    const formValues = this.appointmentForm.value;
+    if(accountId) {
+      const newAppointment: AppointmentCreationModle = {
+        customerId: +accountId,
+        employeeId: +formValues.employee,
+        date: formValues.date + ' ' + formValues.time,
+        treatmentsList: formValues.treatments,
+      }
+      this._appointmentService.create(newAppointment).subscribe(() => {this.refreshCalendar()});
+    }
+  }
 }

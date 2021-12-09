@@ -1,5 +1,29 @@
 <p>create works!</p>
 
+<p>Skriv dato i formatet yyyy-MM-dd HH:mm:ss</p>
+
+<div *ngIf="employees$ | async as employees">
+  <div *ngIf="treatments$ | async as treatments">
+    <form [formGroup]="appointmentForm" (ngSubmit)="bookTime()">
+      <select formControlName="employee">
+       <option *ngFor="let employee of employees.accountList" [value]="employee.id">
+        {{employee.name}}
+        </option>
+      </select>
+      <select multiple formControlName="treatments">
+        <option *ngFor="let treatment of treatments.treatmentsList" [value]="treatment">
+          {{treatment.name}}
+        </option>
+      </select>
+      <input formControlName="date">
+      <input formControlName="time">
+      <button type="submit">
+        Bestil tid
+      </button>
+    </form>
+  </div>
+
+</div>
 
 <p>Disse tider er ikke tilgængelige</p>
 <div *ngIf="events$ | async as events">
