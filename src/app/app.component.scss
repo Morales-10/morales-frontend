@@ -7,7 +7,7 @@ body {
   font-size: 13px;
 }
 .form-control:focus {
-  border-color: #33cabb;
+  border-color: #ea4c89;
   box-shadow: 0 0 8px rgba(0,0,0,0.1);
 }
 
@@ -33,7 +33,7 @@ body {
 }
 .navbar .navbar-brand b {
   font-weight: bold;
-  color: deeppink;
+  color: #ea4c89;
 }
 .navbar .form-inline {
   display: inline-block;
@@ -69,7 +69,7 @@ body {
 }
 .navbar .nav .btn-primary, .navbar .nav .btn-primary:active {
   color: #fff;
-  background: #33cabb;
+  background: #ea4c89;
   padding-top: 8px;
   padding-bottom: 6px;
   vertical-align: middle;
@@ -78,7 +78,7 @@ body {
 .navbar .nav .btn-primary:hover, .navbar .nav .btn-primary:focus {
   color: #fff;
   outline: none;
-  background: #31bfb1;
+  background: #ea4c89;
 }
 .navbar .navbar-right li:first-child a {
   padding-right: 30px;
@@ -100,7 +100,7 @@ body {
 }
 .navbar ul.nav li.open > a.get-started-btn {
   color: #fff;
-  background: #31bfb1 !important;
+  background: #ea4c89 !important;
 }
 .navbar .dropdown-menu {
   border-radius: 1px;
@@ -126,7 +126,7 @@ body {
   font-size: 14px;
 }
 .navbar .dropdown-menu.form-wrapper a {
-  color: #33cabb;
+  color: #ea4c89;
   padding: 0 !important;
 }
 .navbar .dropdown-menu.form-wrapper a:hover{

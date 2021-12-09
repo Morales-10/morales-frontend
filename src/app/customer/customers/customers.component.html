@@ -1,9 +1,9 @@
 <button>Book en tid</button>
- <button (click) ="logout()">Log ud</button>
+
  <h1>Velkommen</h1>
 
 
- <button>Log ud</button>
+<button (click) ="logout()">Log ud</button>
 
  <div *ngIf="events$ | async as events">
  <div [ngSwitch]="view">
