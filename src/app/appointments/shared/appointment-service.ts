@@ -39,6 +39,7 @@ export class AppointmentService {
     return this._http
       .delete<Appointment>( this.appointmentApi + '/' + appointment.id);
   }
+
   getEvents() : Observable<AppointmentEventsListModel>{
     return this._http.get<AppointmentEventsListModel>(this.appointmentApi + '/employee/events/user')
   }
