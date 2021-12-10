@@ -1,1 +1,32 @@
-<p>update works!</p>
+<p>opdater den valgte tid</p>
+
+<p>Skriv dato i formatet yyyy-MM-dd HH:mm:ss</p>
+<form [formGroup]="appointmentForm" (ngSubmit)="updateAppointment()">
+  <select formControlName="employeeId">
+    <option *ngFor="let employee of employees?.accountList" [value]="employee.id">
+      {{employee.name}}
+    </option>
+  </select>
+  <select multiple formControlName="treatmentsList">
+    <option *ngFor="let treatment of treatments?.treatmentsList" [value]="treatment">
+      {{treatment.name}}
+    </option>
+  </select>
+  <input formControlName="date">
+  <input formControlName="time">
+  <button type="submit">
+    opdater Din tid
+  </button>
+</form>
+{{appointmentForm.value | json}}
+
+<br>
+<br>
+
+<p>Slet din tid</p>
+<form [formGroup]="deleteForm" (ngSubmit)="deleteAppointment()">
+  <button type="submit">
+    slet
+  </button>
+</form>
+{{deleteForm.value | json}}

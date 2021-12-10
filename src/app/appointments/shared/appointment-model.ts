@@ -4,9 +4,9 @@ import {Treatment} from "../../treatments/shared/treatment-model";
 export interface Appointment {
 
   id: number;
-  cutomerId: number;
+  customerId: number;
   customerName: string;
-  employeeId: number;
+  employeeid: number;
   employeeName: string;
   date: string;
   duration: DurationModel;

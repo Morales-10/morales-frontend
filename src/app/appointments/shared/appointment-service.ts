@@ -8,6 +8,7 @@ import {AppointmentEventsListModel} from "../../employee/shared/appointment-even
 import {AccountListDto} from "../../auth/shared/account-list-dto";
 import {TreatmentList} from "../../treatments/shared/treatment-list.model";
 import {AppointmentCreationModle} from "./appointment-creation-modle";
+import {AppointmentUpdateDto} from "./appointment-update-dto";
 
 
 @Injectable({
@@ -33,15 +34,20 @@ export class AppointmentService {
       .post<AppointmentCreationModle>(this.appointmentApi, appointment);
   }
 
-  update(appointment: Appointment) : Observable<Appointment> {
+  update(appointment: AppointmentUpdateDto) : Observable<Appointment> {
     return this._http
-      .put<Appointment>(this.appointmentApi + '/' + appointment.id, appointment);
+      .put<Appointment>(this.appointmentApi + '/' + appointment.appointmentId, appointment);
 
   }
 
-  delete(appointment: Appointment) : Observable<Appointment> {
+  getUserAppointments() : Observable<AppointmentList> {
     return this._http
-      .delete<Appointment>( this.appointmentApi + '/' + appointment.id);
+      .get<AppointmentList>(this.appointmentApi + '/user/' + localStorage.getItem('accountId'));
+  }
+
+  delete(appointment: number) : Observable<Appointment> {
+    return this._http
+      .delete<Appointment>( this.appointmentApi + '/' + appointment);
   }
 
   getEvents() : Observable<AppointmentEventsListModel>{

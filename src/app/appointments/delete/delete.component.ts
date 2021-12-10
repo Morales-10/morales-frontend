@@ -23,10 +23,5 @@ export class DeleteComponent implements OnInit {
   }
 
   delete(){
-    let appointment = this.appointmentForm.value as Appointment;
-    this._appointmentService.delete(appointment)
-      .subscribe(appointment => {
-        this._router.navigateByUrl('appointment');
-      });
   }
 }
