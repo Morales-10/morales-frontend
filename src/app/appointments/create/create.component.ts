@@ -82,7 +82,6 @@ export class CreateComponent implements OnInit {
       }
       this._appointmentService.create(newAppointment).subscribe(() => {this.refreshCalendar()});
     }
-    this._router.navigateByUrl('/customer')
   }
 
   tilbage() {
