@@ -1,5 +1,5 @@
 import {Appointment} from "./appointment-model";
 
 export interface AppointmentList{
-  appointmentsList: Appointment[];
+  appointmentList: Appointment[];
 }

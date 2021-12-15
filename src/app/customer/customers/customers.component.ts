@@ -52,4 +52,12 @@ export class CustomersComponent implements OnInit {
   logout(): void {
     this.router.navigateByUrl('/auth/login')
   }
+
+  book() {
+    this.router.navigateByUrl('/appointment/book')
+  }
+
+  tider() {
+    this.router.navigateByUrl('/appointment/list')
+  }
 }

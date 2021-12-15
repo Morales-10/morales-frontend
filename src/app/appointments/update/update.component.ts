@@ -87,6 +87,7 @@ export class UpdateComponent implements OnInit, AfterViewInit {
         appointmentId: formValues.appointmentId,
       }
       this._appointmentService.update(updatedAppointment).subscribe();
+      this._router.navigateByUrl('/customer')
     }
   }
 
@@ -94,5 +95,10 @@ export class UpdateComponent implements OnInit, AfterViewInit {
   deleteAppointment() {
     const deleteId = this.deleteForm.value;
     this._appointmentService.delete(deleteId.appointmentDeleteId).subscribe();
+    this._router.navigateByUrl('/customer')
+  }
+
+  tilbage() {
+    this._router.navigateByUrl('/customer')
   }
 }

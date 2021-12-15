@@ -1,5 +1,7 @@
 <p>opdater den valgte tid</p>
 
+<button (click)="tilbage()">Tilbage</button>
+
 <p>Skriv dato i formatet yyyy-MM-dd HH:mm:ss</p>
 <form [formGroup]="appointmentForm" (ngSubmit)="updateAppointment()">
   <select formControlName="employeeId">
@@ -18,7 +20,6 @@
     opdater Din tid
   </button>
 </form>
-{{appointmentForm.value | json}}
 
 <br>
 <br>
@@ -29,4 +30,3 @@
     slet
   </button>
 </form>
-{{deleteForm.value | json}}

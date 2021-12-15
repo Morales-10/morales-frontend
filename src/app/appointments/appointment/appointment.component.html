@@ -1,1 +1,29 @@
-<p>appointment works!</p>
+<p>Extra info om dine tider</p>
+<h3>For at opdatere en af dine tider skriv /appointment/update/(id)</h3>
+
+<button (click)="tilbage()">Tilbage</button>
+
+<div *ngIf="appointments$ | async as appointments" class="container">
+  <table class="table table-striped table-bordered">
+    <thead>
+    <tr>
+      <th>Id</th>
+      <th>Frisør</th>
+      <th>Dato</th>
+      <th>længde</th>
+      <th>pris</th>
+      <th>behandlinger</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let appointment of appointments.appointmentList">
+      <td> {{appointment.id}}</td>
+      <td> {{appointment.employeeName}}</td>
+      <td> {{appointment.date}}</td>
+      <td> {{appointment.duration.totalMinutes}}</td>
+      <td> {{appointment.totalPrice}}</td>
+      <td *ngFor="let treatment of appointment.treatmentsList">{{treatment.name}} </td>
+    </tr>
+    </tbody>
+  </table>
+</div>

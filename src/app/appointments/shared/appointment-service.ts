@@ -29,7 +29,6 @@ export class AppointmentService {
   }
 
   create(appointment: AppointmentCreationModle) : Observable<AppointmentCreationModle> {
-    debugger
     return this._http
       .post<AppointmentCreationModle>(this.appointmentApi, appointment);
   }
