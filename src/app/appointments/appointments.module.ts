@@ -4,7 +4,6 @@ import { CommonModule } from '@angular/common';
 import { AppointmentsRoutingModule } from './appointments-routing.module';
 import { AppointmentComponent } from './appointment/appointment.component';
 import { CreateComponent } from './create/create.component';
-import { DeleteComponent } from './delete/delete.component';
 import { UpdateComponent } from './update/update.component';
 
 import { CalendarModule, DateAdapter } from 'angular-calendar';
@@ -15,7 +14,6 @@ import {ReactiveFormsModule} from "@angular/forms";
   declarations: [
     AppointmentComponent,
     CreateComponent,
-    DeleteComponent,
     UpdateComponent
   ],
   imports: [

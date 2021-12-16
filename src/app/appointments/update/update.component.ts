@@ -15,7 +15,7 @@ import {AppointmentUpdateDto} from "../shared/appointment-update-dto";
   templateUrl: './update.component.html',
   styleUrls: ['./update.component.scss']
 })
-export class UpdateComponent implements OnInit, AfterViewInit {
+export class UpdateComponent implements OnInit {
   appointmentForm = new FormGroup({
     employeeId: new FormControl('', Validators.required),
     date: new FormControl('', Validators.required),
@@ -45,11 +45,11 @@ export class UpdateComponent implements OnInit, AfterViewInit {
         this.treatments = treatmentList;
       }),
       take(1)
-    ).subscribe();
+    ).subscribe(() => this.postInit());
 
   }
 
-  ngAfterViewInit(): void {
+  postInit(): void {
     let id = this._route.snapshot.paramMap.get('id');
     if (id) {
       this._appointmentService.getAppointment(+id)
